@@ -147,6 +147,8 @@ The API includes the following endpoints:
 - **GET** `/api/orders/{id}` – View order details  
 - **GET** `/api/orders` – List all orders  
 - **DELETE** `/api/orders/{id}` – Delete an order
+- **PUT** `/api/orders/{id}` – Update order
+- **PATCH** `/api/orders/{id}/status` – Update Order Status
 
 **Authorization:**  
 All order-related endpoints require Bearer Token authentication.
@@ -156,7 +158,7 @@ All order-related endpoints require Bearer Token authentication.
 ## Postman Collection
 
 A Postman collection is included in the repository:  
-`/docs/TechnicalRound.postman_collection.json`
+`/Technical Assignment.postman_collection.json`
 
 Import it into Postman to test the API.
 

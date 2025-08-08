@@ -81,14 +81,14 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(OrderUpdateRequest $request, $id,OrderStatusService $orderService): JsonResponse
+    public function update(OrderUpdateRequest $request, $id,OrderStatusService $orderService)
     {
         try {
             $order = Order::findOrFail($id);
     
             $error = $orderService->validateUpdate($order, $request);
             if ($error) {
-                return $this->errorResponse($error['message'], $error['code']);
+                return $this->errorResponse($error);
             }
     
             $data = $request->all();

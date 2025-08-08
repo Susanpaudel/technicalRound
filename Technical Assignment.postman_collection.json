@@ -1,0 +1,947 @@
+{
+	"info": {
+		"_postman_id": "08679a2c-18f5-486e-bda3-d4fc408b505c",
+		"name": "Technical Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22962476",
+		"_collection_link": "https://www.postman.com/satellite-engineer-25484835/workspace/technical-assignment/collection/22962476-08679a2c-18f5-486e-bda3-d4fc408b505c?action=share&source=collection_link&creator=22962476"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "app-api-key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Susan Paudel\",\r\n    \"email\":\"susanpaudel15@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/register"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Susan Paudel\",\r\n    \"email\":\"susanpaudel15@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\":\"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/register"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.18"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Aug 2025 01:44:35 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"name\": \"Susan Paudel\",\n        \"email\": \"susanpaudel15@gmail.com\",\n        \"updated_at\": \"2025-08-07T01:44:35.000000Z\",\n        \"created_at\": \"2025-08-07T01:44:35.000000Z\",\n        \"id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"res = pm.response.json();\r",
+									"pm.environment.set('api_token', res.token);\r",
+									"pm.environment.set('url', 'http://localhost:8000/api');"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "app-api-key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"susanpaudel15@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/login"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"susanpaudel15@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.18"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Aug 2025 01:53:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login successful\",\n    \"token\": \"1|XMu3d5BGPUj3vqakEwKcT4zp5Z1vuisPoRygSHUS4a6c9047\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"res = pm.response.json();\r",
+									"pm.environment.set('api_token', null);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{api_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "app-api-key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/logout"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Susan Paudel\",\r\n    \"email\":\"susanpaudel15@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\":\"password\"\r\n}"
+								},
+								"url": "{{url}}/logout"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.18"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Aug 2025 01:57:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"User logged out successfully\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{api_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "app-api-key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/orders?status=pending&start_date=07-08-2025",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "pending"
+								},
+								{
+									"key": "start_date",
+									"value": "07-08-2025"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Orders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "app-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/orders?status=pending&start_date=07-08-2025",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"orders"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "pending"
+										},
+										{
+											"key": "start_date",
+											"value": "07-08-2025"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.18"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Aug 2025 03:32:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Orders fetched successfully\",\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 4,\n                \"user_id\": 1,\n                \"customer_name\": \"John Doe\",\n                \"order_items\": \"[{\\\"product_name\\\":\\\"Product C\\\",\\\"quantity\\\":2,\\\"price\\\":40},{\\\"product_name\\\":\\\"Product D\\\",\\\"quantity\\\":1,\\\"price\\\":20}]\",\n                \"total_amount\": \"100.00\",\n                \"order_status\": \"pending\",\n                \"created_at\": \"2025-08-08T02:04:22.000000Z\",\n                \"updated_at\": \"2025-08-08T02:04:22.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://localhost:8000/api/orders?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://localhost:8000/api/orders?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/orders?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://localhost:8000/api/orders\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 1,\n        \"total\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{api_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "app-api-key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": 1,\r\n  \"customer_name\": \"John Doe\",\r\n  \"order_items\": [\r\n    {\r\n      \"product_name\": \"Product C\",\r\n      \"quantity\": 2,\r\n      \"price\": 40\r\n    },\r\n    {\r\n      \"product_name\": \"Product D\",\r\n      \"quantity\": 1,\r\n      \"price\": 20\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/orders"
+					},
+					"response": [
+						{
+							"name": "create Order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "app-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"user_id\": 1,\r\n  \"customer_name\": \"John Doe\",\r\n  \"order_items\": [\r\n    {\r\n      \"product_name\": \"Product C\",\r\n      \"quantity\": 2,\r\n      \"price\": 40\r\n    },\r\n    {\r\n      \"product_name\": \"Product D\",\r\n      \"quantity\": 1,\r\n      \"price\": 20\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/orders"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.18"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Aug 2025 07:16:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Order created successfully\",\n    \"data\": {\n        \"user_id\": 1,\n        \"customer_name\": \"John Doe\",\n        \"order_items\": \"[{\\\"product_name\\\":\\\"Product C\\\",\\\"quantity\\\":2,\\\"price\\\":40},{\\\"product_name\\\":\\\"Product D\\\",\\\"quantity\\\":1,\\\"price\\\":20}]\",\n        \"total_amount\": \"100.00\",\n        \"updated_at\": \"2025-08-08T07:16:07.000000Z\",\n        \"created_at\": \"2025-08-08T07:16:07.000000Z\",\n        \"id\": 5\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{api_token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "app-api-key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": 1,\r\n  \"customer_name\": \"Susan Paudel 123\",\r\n  \"order_items\": [\r\n    {\r\n      \"product_name\": \"Product C\",\r\n      \"quantity\": 2,\r\n      \"price\": 40\r\n    },\r\n    {\r\n      \"product_name\": \"Product D\",\r\n      \"quantity\": 1,\r\n      \"price\": 40\r\n    }\r\n  ],\r\n  \"order_status\":\"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/orders/1"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "app-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"user_id\": 1,\r\n  \"customer_name\": \"Susan Paudel 123\",\r\n  \"order_items\": [\r\n    {\r\n      \"product_name\": \"Product C\",\r\n      \"quantity\": 2,\r\n      \"price\": 40\r\n    },\r\n    {\r\n      \"product_name\": \"Product D\",\r\n      \"quantity\": 1,\r\n      \"price\": 40\r\n    }\r\n  ],\r\n  \"order_status\":\"pending\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/orders/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.18"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Aug 2025 07:18:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Order updated successfully.\",\n    \"data\": {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"customer_name\": \"Susan Paudel 123\",\n        \"order_items\": \"[{\\\"product_name\\\":\\\"Product C\\\",\\\"quantity\\\":2,\\\"price\\\":40},{\\\"product_name\\\":\\\"Product D\\\",\\\"quantity\\\":1,\\\"price\\\":40}]\",\n        \"total_amount\": \"120.00\",\n        \"order_status\": \"pending\",\n        \"created_at\": \"2025-08-07T15:42:55.000000Z\",\n        \"updated_at\": \"2025-08-08T07:18:21.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{api_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "app-api-key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/orders/1"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "app-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/orders/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.18"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Aug 2025 07:25:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Order fetched successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"customer_name\": \"Susan Paudel 123\",\n        \"order_items\": \"[{\\\"product_name\\\":\\\"Product C\\\",\\\"quantity\\\":2,\\\"price\\\":40},{\\\"product_name\\\":\\\"Product D\\\",\\\"quantity\\\":1,\\\"price\\\":40}]\",\n        \"total_amount\": \"120.00\",\n        \"order_status\": \"pending\",\n        \"created_at\": \"2025-08-07T15:42:55.000000Z\",\n        \"updated_at\": \"2025-08-08T07:18:21.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{api_token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "app-api-key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/orders/5"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "app-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/orders/5"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.18"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Aug 2025 07:26:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Order deleted successfully.\",\n    \"data\": {\n        \"id\": 5,\n        \"user_id\": 1,\n        \"customer_name\": \"John Doe\",\n        \"order_items\": \"[{\\\"product_name\\\":\\\"Product C\\\",\\\"quantity\\\":2,\\\"price\\\":40},{\\\"product_name\\\":\\\"Product D\\\",\\\"quantity\\\":1,\\\"price\\\":20}]\",\n        \"total_amount\": \"100.00\",\n        \"order_status\": \"pending\",\n        \"created_at\": \"2025-08-08T07:16:07.000000Z\",\n        \"updated_at\": \"2025-08-08T07:16:07.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Change Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{api_token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "app-api-key",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_status\":\"processing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/orders/1/status"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "app-api-key",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order_status\":\"processing\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/orders/1/status"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.18"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Aug 2025 07:27:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Order updated successfully.\",\n    \"data\": {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"customer_name\": \"Susan Paudel 123\",\n        \"order_items\": \"[{\\\"product_name\\\":\\\"Product C\\\",\\\"quantity\\\":2,\\\"price\\\":40},{\\\"product_name\\\":\\\"Product D\\\",\\\"quantity\\\":1,\\\"price\\\":40}]\",\n        \"total_amount\": \"120.00\",\n        \"order_status\": \"processing\",\n        \"created_at\": \"2025-08-07T15:42:55.000000Z\",\n        \"updated_at\": \"2025-08-08T07:27:22.000000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
